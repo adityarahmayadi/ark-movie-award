@@ -5,10 +5,11 @@ const Ballot = ({
   title,
   photoUrl,
   id,
-  selected
+  selected,
+  onClick
 }) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <Image src={photoUrl} alt='ballot image' />
       <Label>{title}</Label>
       <Button selected={selected}>{selected ? 'CANCEL' : 'SELECT'}</Button>

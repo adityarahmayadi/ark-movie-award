@@ -11,4 +11,5 @@ export const Wrapper = styled.div`
   column-gap: 32px;
   row-gap: 32px;
   flex-wrap: wrap;
+  justify-content: space-around;
 `

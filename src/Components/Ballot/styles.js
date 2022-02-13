@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   align-items:center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 240px;
   border-radius: 4px;
   background: #FFFFFF;
@@ -32,6 +32,8 @@ export const Overlay = styled.div`
 `;
 
 export const Label = styled.p`
+  padding: 0px 8px;
+  text-align: center;
   font-size: 16px;
   color: #000000;
 `;
