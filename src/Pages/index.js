@@ -40,6 +40,7 @@ const MainPage = () => {
 
   const closeModal = useCallback(() => {
     setIsModalOpen(false)
+    setSelectedData({})
   }, [])
 
   return(
