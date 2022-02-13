@@ -2,12 +2,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Ballot from '../Components/Ballot/Ballot';
 import Category from '../Components/Category';
 import Header from '../Components/Header'
-import { Container, Wrapper } from './styles';
+import { ButtonWrapper, Container, SubmitButton, Wrapper } from './styles';
 import api from '../Api/Api';
+import Modal from '../Components/Modal';
 
 const MainPage = () => {
   const [data, setData] = useState([]);
-  const [selectedData, setSelectedData] = useState({})
+  const [selectedData, setSelectedData] = useState({});
+  const [isModalOpen, setIsModalOpen] =  useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,8 +34,17 @@ const MainPage = () => {
       }))
   }, [])
 
+  const handleSubmit = useCallback(() => {
+    setIsModalOpen(true)
+  }, [])
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false)
+  }, [])
+
   return(
     <Container>
+      <Modal onClose={closeModal} isOpen={isModalOpen} />
       <Header title='Movie Awards 2021' />
       {
         data.map((category) => (
@@ -57,6 +68,9 @@ const MainPage = () => {
           </>
         ))
       }
+      <ButtonWrapper>
+        <SubmitButton onClick={handleSubmit}>SUBMIT</SubmitButton>
+      </ButtonWrapper>
     </Container>
   )
 };
